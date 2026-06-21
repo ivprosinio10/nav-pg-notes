@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pg导航 · 场景化快捷入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f8f9fb;
+            color: #1e1f2a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1.2rem;
+        }
+        .page {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* 顶部导航 */
+        .topnav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 0 0.8rem;
+            border-bottom: 1px solid #e4e7ed;
+            margin-bottom: 2.8rem;
+        }
+        .topnav .logo {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.3px;
+            color: #1e1f2a;
+        }
+        .topnav .logo span {
+            color: #2a7de1;
+        }
+        .topnav .navlinks a {
+            color: #4a5064;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-left: 1.6rem;
+            transition: color 0.2s;
+        }
+        .topnav .navlinks a:hover {
+            color: #1e1f2a;
+        }
+        @media (max-width: 500px) {
+            .topnav .navlinks a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-bottom: 2.6rem;
+        }
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        .hero h1 .accent {
+            color: #2a7de1;
+        }
+        .hero p {
+            color: #4a5064;
+            font-size: 1.05rem;
+            max-width: 600px;
+        }
+
+        /* 简介段落 */
+        .intro {
+            margin-bottom: 2.8rem;
+            padding: 1.2rem 0;
+            border-top: 1px solid #eef0f4;
+            border-bottom: 1px solid #eef0f4;
+        }
+        .intro p {
+            font-size: 0.98rem;
+            color: #2f3342;
+            line-height: 1.7;
+        }
+
+        /* 三个场景卡片 */
+        .scenes {
+            margin-bottom: 3rem;
+        }
+        .scenes h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #dce1ea;
+        }
+        .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.2rem;
+        }
+        .scene-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 1.4rem 1.2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+            border: 1px solid #edf0f5;
+            transition: box-shadow 0.2s;
+        }
+        .scene-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        .scene-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #1e1f2a;
+        }
+        .scene-card p {
+            font-size: 0.9rem;
+            color: #5b6178;
+            line-height: 1.5;
+        }
+        @media (max-width: 600px) {
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        /* 常见说明 (FAQ 摘要) */
+        .faq-summary {
+            margin-bottom: 2.6rem;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.6rem 1.5rem;
+            border: 1px solid #eaeef3;
+        }
+        .faq-summary h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e1f2a;
+        }
+        .faq-item {
+            margin-bottom: 0.8rem;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+            color: #1e1f2a;
+        }
+        .faq-item p {
+            font-size: 0.9rem;
+            color: #5b6178;
+            margin: 0;
+        }
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 尾部 */
+        .footer {
+            margin-top: 1rem;
+            padding: 1.5rem 0 1rem;
+            border-top: 1px solid #e4e7ed;
+            font-size: 0.88rem;
+            color: #6c7289;
+            text-align: center;
+            line-height: 1.6;
+        }
+        .footer a {
+            color: #2a7de1;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- 顶部导航 -->
+        <nav class="topnav">
+            <div class="logo"><span>pg</span>导航</div>
+            <div class="navlinks">
+                <a href="https://nav-pg.com">pg导航</a>
+                <a href="https://nav-pg.com">pg导航</a>
+                <a href="https://nav-pg.com">pg导航</a>
+            </div>
+        </nav>
+
+        <!-- hero -->
+        <div class="hero">
+            <h1>从需求到资源，<br><span class="accent">一步定位</span></h1>
+            <p>快速识别网站用途，直接抵达目标工具或信息页。pg导航 整理常用场景入口，减少搜索成本。</p>
+        </div>
+
+        <!-- 核心介绍 -->
+        <div class="intro">
+            <p><strong>pg导航</strong> 是一个面向日常信息检索、工具查找与学习场景的轻量级导航站。站点结构直接对应常见使用意图——无论你是想找设计素材、技术文档，还是行业数据报告，都能通过明确分类快速定位。区别于传统聚合页，pg导航 更强调「场景匹配」：每个模块都对应一类典型操作，从而降低决策负担。你可以在 <a href="https://nav-pg.com">pg导航</a> 首页直接浏览当前已收录的类别入口，并根据自身需求进一步探索。</p>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <div class="scenes">
+            <h2>典型使用场景</h2>
+            <div class="scene-grid">
+                <div class="scene-card">
+                    <h3>资料检索</h3>
+                    <p>快速定位文档平台、学术数据库与开源知识库，适合研究与写作前的信息收集。</p>
+                </div>
+                <div class="scene-card">
+                    <h3>设计与素材</h3>
+                    <p>汇集图标库、配色工具、无版权图库与原型资源，帮助创意工作者缩短查找路径。</p>
+                </div>
+                <div class="scene-card">
+                    <h3>开发与运维</h3>
+                    <p>常用开发者社区、API 文档、代码托管平台与在线测试工具，提升技术执行效率。</p>
+                </div>
+            </div>
+            <p style="margin-top:1.2rem; font-size:0.9rem; color:#6c7289; border-left:3px solid #dce1ea; padding-left:0.8rem;">pg导航 不存储资源本身，仅提供经过筛选的公开链接索引，所有内容均指向原始出处。</p>
+        </div>
+
+        <!-- 常见说明 (FAQ 摘要) -->
+        <div class="faq-summary">
+            <h2>常见说明</h2>
+            <div class="faq-item">
+                <strong>收录标准是什么？</strong>
+                <p>主要收录活跃维护、内容稳定且符合通用使用习惯的网站。不收录个人博客或失效链接。</p>
+            </div>
+            <div class="faq-item">
+                <strong>分类逻辑如何理解？</strong>
+                <p>按用户意图而非网站类型划分。例如「快速参考」包括词典、单位换算、时区等，与「数据统计」分开。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否支持用户提交建议？</strong>
+                <p>现阶段为静态展示页，暂无交互功能。后续规划中会考虑反馈入口。</p>
+            </div>
+            <div class="faq-item">
+                <strong>页面会持续更新吗？</strong>
+                <p>链接与分类会定期复核，确保索引质量。具体更新时间可留意站点页面标注。</p>
+            </div>
+        </div>
+
+        <!-- 尾部，包含必须的链接文本 -->
+        <div class="footer">
+            <p>导航索引基于通用场景整理 · 内容仅供参考 · 使用 <a href="https://nav-pg.com">pg导航</a> 即表示已知悉上述说明</p>
+            <p style="margin-top:0.4rem;">pg导航 · 场景化快捷入口</p>
+        </div>
+
+    </div>
+</body>
+</html>
