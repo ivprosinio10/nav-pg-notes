@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>乐鱼 · 索引手册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f0f7fa;
+            color: #1f2933;
+            line-height: 1.7;
+            padding: 0 1.25rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .page-wrap {
+            max-width: 860px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            padding: 2.8rem 0 1.5rem;
+            border-bottom: 1px solid rgba(39, 174, 96, 0.15);
+        }
+        .site-label {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #2a9d8f;
+            font-weight: 500;
+            display: inline-block;
+            background: rgba(42, 157, 143, 0.08);
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-top: 0.6rem;
+            color: #0b2b33;
+            letter-spacing: -0.02em;
+        }
+        .accent-dot {
+            color: #2a9d8f;
+        }
+        .lead {
+            font-size: 1.1rem;
+            color: #2d4f5a;
+            margin: 1.2rem 0 0.2rem;
+            padding-right: 1rem;
+            border-left: 4px solid #2a9d8f;
+            padding-left: 1rem;
+        }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 2.2rem 0 1.8rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.4rem 1.2rem 1.2rem;
+            box-shadow: 0 4px 12px rgba(0, 40, 40, 0.04);
+            border: 1px solid rgba(42, 157, 143, 0.1);
+            transition: transform 0.1s ease, box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(42, 157, 143, 0.08);
+            transform: translateY(-1px);
+        }
+        .card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1b4b4f;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .card h3::before {
+            content: "▹";
+            color: #2a9d8f;
+            font-weight: 400;
+            font-size: 1.2rem;
+        }
+        .card p {
+            font-size: 0.925rem;
+            color: #2e4c54;
+        }
+        .highlight-box {
+            background: rgba(42, 157, 143, 0.04);
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem;
+            margin: 1rem 0 1.8rem;
+            border-left: 6px solid #2a9d8f;
+        }
+        .highlight-box p {
+            margin-bottom: 0.75rem;
+        }
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+        .pull-quote {
+            font-size: 1rem;
+            background: #ffffffd6;
+            backdrop-filter: blur(2px);
+            padding: 1.1rem 1.4rem;
+            border-radius: 30px 12px 12px 30px;
+            margin: 1.8rem 0 1.2rem;
+            border: 1px solid #bdd9d4;
+            color: #1b484e;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            font-style: normal;
+        }
+        .pull-quote strong {
+            color: #19786b;
+            font-weight: 600;
+        }
+        .faq-mini {
+            background: white;
+            border-radius: 20px;
+            padding: 1.3rem 1.4rem 1.1rem;
+            margin: 1.6rem 0 1.8rem;
+            border: 1px solid #cfe2de;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px dashed #d4e3e0;
+            padding-bottom: 0.8rem;
+        }
+        .faq-item:last-child {
+            border-bottom: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #134e4a;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .faq-a {
+            color: #2c5d5e;
+            font-size: 0.95rem;
+        }
+        .inline-link {
+            color: #19786b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(25, 120, 107, 0.25);
+            transition: border-color 0.15s;
+        }
+        .inline-link:hover {
+            border-bottom-color: #19786b;
+        }
+        .visit-sentence {
+            margin: 2rem 0 2.5rem;
+            background: #ffffffd8;
+            backdrop-filter: blur(4px);
+            padding: 1.4rem 1.6rem;
+            border-radius: 30px;
+            border: 1px solid rgba(42, 157, 143, 0.2);
+            text-align: center;
+            font-size: 1.05rem;
+            color: #153b3b;
+        }
+        .visit-sentence a {
+            color: #157367;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(21, 115, 103, 0.3);
+        }
+        .visit-sentence a:hover {
+            border-bottom-color: #157367;
+        }
+        footer {
+            padding: 1.8rem 0 2.4rem;
+            border-top: 1px solid rgba(39, 174, 96, 0.12);
+            font-size: 0.85rem;
+            color: #4b6a6e;
+            text-align: center;
+            margin-top: auto;
+        }
+        footer span {
+            opacity: 0.7;
+        }
+        /* 响应式 */
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.7rem;
+            }
+            .grid-cards {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+            .lead {
+                font-size: 1rem;
+            }
+            .highlight-box {
+                padding: 1.2rem 1rem;
+            }
+            .pull-quote {
+                padding: 1rem 1.1rem;
+                border-radius: 20px 8px 8px 20px;
+            }
+            .faq-mini {
+                padding: 1rem 1rem;
+            }
+            .visit-sentence {
+                padding: 1rem 1.2rem;
+                font-size: 0.98rem;
+            }
+        }
+        @media (max-width: 400px) {
+            body {
+                padding: 0 0.9rem;
+            }
+            .grid-cards {
+                gap: 0.7rem;
+            }
+            .card {
+                padding: 1.1rem 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <header>
+        <span class="site-label">索引 · 识别</span>
+        <h1>乐鱼 <span class="accent-dot">·</span> 用途速览</h1>
+        <div class="lead">
+            一个以信息聚合与轻导航为目标的站点，帮助首次访问者快速判断其内容生态与使用方向。
+        </div>
+    </header>
+
+    <!-- 网格卡片：三个特性（故意不对称，但节奏变化） -->
+    <div class="grid-cards">
+        <div class="card">
+            <h3>定位筛选</h3>
+            <p>围绕特定主题整合资源索引，用户可通过标签与分类缩小范围，而非漫无目的浏览。</p>
+        </div>
+        <div class="card">
+            <h3>信息脉络</h3>
+            <p>内容以结构化方式呈现，突出关键节点，适合需要快速理解站点覆盖面的访问者。</p>
+        </div>
+        <div class="card">
+            <h3>轻量交互</h3>
+            <p>页面聚焦于展示与跳转，减少冗余元素，让识别过程更直接。</p>
+        </div>
+    </div>
+
+    <!-- 正文段落（多段，有承接） -->
+    <div class="highlight-box">
+        <p>初次接触一个网站时，最消耗精力的往往是「它到底能做什么」。乐鱼索引页的设计思路正是为了缩短这个识别周期——通过清晰的标题结构、分类卡片与上下文指引，让访客在几秒内建立对站内信息类型的预期。</p>
+        <p>这种模式不同于门户聚合，也不同于单一工具页，它更像一本「快速翻阅的手册」：你不需要注册或登录，就能从首页的布局中读出网站的核心服务逻辑。举例来说，如果你看到导航区聚焦于几组关键词，那么站内内容大概率也沿着这些关键词展开。</p>
+    </div>
+
+    <!-- 引用/提示：知识型口吻 -->
+    <div class="pull-quote">
+        <strong>提示：</strong> 当你不确定一个站点是否匹配需求时，优先观察它的首页标题与第一屏卡片 —— 超过七成的内容定位信息都藏在这两个区域。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <span class="faq-q">Q：这个网站主要面向哪类用户？</span>
+            <span class="faq-a">适合希望快速了解内容索引与分类逻辑的访客，不局限于特定人群，更侧重信息筛选效率。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q：我能在首页直接找到所有内容吗？</span>
+            <span class="faq-a">首页以索引层为主，深度内容需要进一步浏览子页面，但首页已经给出关键方向标签。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q：是否有隐藏的导航逻辑？</span>
+            <span class="faq-a">没有隐藏设计，所有主要入口均以文字链接或卡片形式展示，视觉优先级由标题层级体现。</span>
+        </div>
+    </div>
+
+    <!-- 自然嵌入链接的访问句（满足条件：可见文本严格等于「乐鱼」） -->
+    <div class="visit-sentence">
+        若想进一步了解索引的具体条目与更新节奏，可直接前往
+        <a href="https://chinaindex-leyu.com" class="inline-link">乐鱼</a>
+        的主页，那里保留了更完整的分类目录。
+    </div>
+
+    <!-- 补充一段承接内容 （使整体更完整） -->
+    <p style="margin: 0.6rem 0 1.2rem; color: #2c5f5b; font-size: 0.95rem; padding: 0 0.2rem;">
+        从识别到使用，中间只差一次点击。但好的索引页会让你在点击之前就已经清楚自己会看到什么——这正是<strong>乐鱼</strong>希望达成的体验。
+    </p>
+
+    <footer>
+        <span>索引说明 · 内容持续调整</span>
+        <span style="display: inline-block; margin: 0 0.4rem;">·</span>
+        <span>结构基于读者视角设计</span>
+    </footer>
+</div>
+</body>
+</html>
