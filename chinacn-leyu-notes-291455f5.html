@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f9fc;
+            color: #1d2b36;
+            line-height: 1.6;
+            padding: 1.5rem 1.2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* 头部摘要 */
+        .hero {
+            margin-bottom: 2.8rem;
+            padding: 2.5rem 1.8rem;
+            background: linear-gradient(145deg, #d9f0f5 0%, #b7e0e9 100%);
+            border-radius: 32px;
+            box-shadow: 0 6px 18px rgba(0, 20, 30, 0.08);
+            border: 1px solid rgba(130, 190, 200, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0b3d4a;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #1f5b69;
+            max-width: 680px;
+            border-left: 4px solid #2d8e9e;
+            padding-left: 1.2rem;
+            margin-top: 0.8rem;
+            background: rgba(255,255,255,0.25);
+            border-radius: 0 12px 12px 0;
+            padding: 0.7rem 1.2rem;
+        }
+
+        .hero p {
+            margin-top: 1.2rem;
+            color: #1b4552;
+            max-width: 700px;
+            font-weight: 400;
+        }
+
+        /* 网格卡片 */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0 2.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.6rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,30,40,0.04);
+            border: 1px solid #d8e9ef;
+            transition: box-shadow 0.2s ease, transform 0.1s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(30, 100, 120, 0.08);
+            transform: translateY(-2px);
+            border-color: #a8d2de;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight:500;
+            color: #116277;
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card h2::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 22px;
+            background: #3ba6bb;
+            border-radius: 12px;
+        }
+
+        .card p, .card li {
+            color: #1f3843;
+            font-size: 0.98rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.35rem;
+        }
+
+        .card ul li::before {
+            content: '·';
+            position: absolute;
+            left: 2px;
+            color: #3b9aaf;
+            font-weight: 600;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e3f2f7;
+            color: #116277;
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            border: 1px solid #bddbe6;
+        }
+
+        /* 使用建议与提示混合 */
+        .advice-box {
+            background: #f0f9fd;
+            border-radius: 28px;
+            padding: 2rem 1.8rem;
+            margin: 1.8rem 0 2.5rem;
+            border: 1px solid #cde2ec;
+        }
+
+        .advice-box h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #0a4657;
+            margin-bottom: 0.8rem;
+        }
+
+        .advice-box ol {
+            padding-left: 1.5rem;
+            color: #1d3a45;
+        }
+
+        .advice-box ol li {
+            margin-bottom: 0.6rem;
+        }
+
+        .advice-box .note {
+            margin-top: 1.2rem;
+            padding: 1rem 1.2rem;
+            background: #ffffffd8;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #1d4958;
+            border-left: 4px solid #2f99b1;
+        }
+
+        .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 1rem 1.4rem;
+            border-radius: 20px;
+            border: 1px solid #dcecf3;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #094c5f;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: #1f3d49;
+            font-size: 0.92rem;
+        }
+
+        /* 自然链接句子 */
+        .link-sentence {
+            margin: 2.2rem 0 1.5rem;
+            padding: 1rem 1.5rem;
+            background: #dbeef5;
+            border-radius: 40px;
+            font-size: 1rem;
+            color: #06323f;
+            text-align: center;
+            border: 1px solid #b2d4e2;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .link-sentence a {
+            color: #0a5b6e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #3ba3bb;
+            padding-bottom: 2px;
+            transition: border-color 0.2s;
+        }
+
+        .link-sentence a:hover {
+            border-bottom-color: #0b3d4a;
+        }
+
+        /* 页脚 */
+        footer {
+            margin-top: 3rem;
+            padding: 1.2rem 0 0.8rem;
+            border-top: 1px solid #cde0e9;
+            font-size: 0.8rem;
+            color: #3c6473;
+            text-align: center;
+        }
+
+        /* 响应式 */
+        @media (min-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .faq-mini {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 920px) {
+            .grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .hero {
+                padding: 3rem 3rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- hero 摘要 -->
+        <section class="hero">
+            <h1>乐鱼·产品说明</h1>
+            <div class="sub">围绕「乐鱼」主题的内容与服务概述</div>
+            <p>从线上体验到内容组织，<strong>乐鱼</strong> 所涉及的方向更多集中在信息获取、轻量交互与界面友好度上。下文从几个侧面进行说明，帮助理解其特点与适用场景。</p>
+        </section>
+
+        <!-- 网格卡片：亮点与特性 -->
+        <div class="grid">
+            <div class="card">
+                <h2>信息组织方式</h2>
+                <p>内容以分类卡片与列表为主，结构相对清晰，适合快速浏览。</p>
+                <ul>
+                    <li>分区明确，减少跳转层级</li>
+                    <li>标题与摘要前置，便于筛选</li>
+                    <li>视觉密度中等，不拥挤</li>
+                </ul>
+                <span class="tag">结构导向</span>
+            </div>
+            <div class="card">
+                <h2>界面与视觉</h2>
+                <p>采用蓝绿与中性底色，降低视觉疲劳；卡片圆润，留白克制。</p>
+                <ul>
+                    <li>主色调 #1f8a9e 系列</li>
+                    <li>字体以无衬线为主，字重适中</li>
+                    <li>适配移动端与桌面端</li>
+                </ul>
+                <span class="tag">蓝绿基调</span>
+            </div>
+            <div class="card">
+                <h2>体验特点</h2>
+                <p>页面响应较快，操作路径较短，适合日常浏览与轻量使用。</p>
+                <ul>
+                    <li>加载内容以文本为主</li>
+                    <li>没有过度动效</li>
+                    <li>关键操作明确</li>
+                </ul>
+                <span class="tag">轻量直接</span>
+            </div>
+        </div>
+
+        <!-- 使用建议区块 -->
+        <section class="advice-box">
+            <h3>使用建议与场景参考</h3>
+            <ol>
+                <li><strong>信息浏览</strong> — 适合利用碎片时间了解分类内容，首页可作为起点。</li>
+                <li><strong>多设备切换</strong> — 建议在手机与电脑上分别尝试布局，感受自适应差异。</li>
+                <li><strong>关注内容更新</strong> — 页面内容会随方向调整，可定期回看结构变化。</li>
+            </ol>
+            <div class="note">
+                ⚡ 提示：本页面向对信息呈现方式有一定需求的用户，不提供任何投资、交易或诱导性服务。所有描述均基于界面与功能本身。
+            </div>
+        </section>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <div class="faq-item">
+                <strong>「乐鱼」主要提供什么？</strong>
+                <p>围绕主题内容组织与信息展示，偏向轻量阅读与分类浏览，不涉及复杂交互。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否需要注册或登录？</strong>
+                <p>当前页面为介绍说明，不要求注册。具体功能以实际页面标注为准。</p>
+            </div>
+            <div class="faq-item">
+                <strong>移动端体验如何？</strong>
+                <p>布局采用弹性网格与相对单位，在手机与平板上均可正常显示，操作区域适配触控。</p>
+            </div>
+            <div class="faq-item">
+                <strong>内容更新频率？</strong>
+                <p>没有固定更新承诺，页面结构会随介绍方向调整，可能不定期优化。</p>
+            </div>
+        </div>
+
+        <!-- 自然嵌入链接的句子（a标签可见文本严格为「乐鱼」） -->
+        <div class="link-sentence">
+            如果你希望进一步了解，可以直接访问 <a href="https://chinacn-leyu.com">乐鱼</a>，该网站提供了更完整的内容与界面。
+        </div>
+
+        <!-- 另一个自然句子（非链接，仅丰富上下文） -->
+        <p style="text-align:center; color:#2c5f6f; font-size:0.95rem; margin: 0.5rem 0 2rem;">
+            日常使用中，可以多留意首页结构的变化与信息分类方式。
+        </p>
+    </main>
+
+    <footer>
+        <p>产品说明页 · 仅作介绍用途 · 无诱导内容</p>
+    </footer>
+</body>
+</html>
